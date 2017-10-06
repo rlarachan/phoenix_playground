@@ -1,0 +1,21 @@
+h2 Listing Posts
+
+table.table
+  thead
+    tr
+      th Title
+      th Body
+      th
+
+  tbody
+    = for post <- @posts do
+      tr
+        td= post.title
+        td= post.body
+
+        td.text-right
+          span= link "Show", to: post_path(@conn, :show, post), class: "btn btn-default btn-xs"
+          span= link "Edit", to: post_path(@conn, :edit, post), class: "btn btn-default btn-xs"
+          span= link "Delete", to: post_path(@conn, :delete, post), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs"
+
+span= link "New Post", to: post_path(@conn, :new)

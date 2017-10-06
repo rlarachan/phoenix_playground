@@ -1,0 +1,12 @@
+h2 Show Post
+
+ul
+  li
+    strong Title:
+    = @post.title
+  li
+    strong Body:
+    = @post.body
+
+span= link "Edit", to: post_path(@conn, :edit, @post)
+span= link "Back", to: post_path(@conn, :index)
